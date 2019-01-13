@@ -65,8 +65,8 @@ class NeuralNetwork:
         dwho = np.dot(dz,hidden_output)
 
         dwih =np.dot(hidden_output*(1-hidden_output)*hidden_output_error,inputs)
-        self.who += self.learn_rate *dwho
-        self.wih += self.learn_rate *dwih
+        self.who -= self.learn_rate *dwho
+        self.wih -= self.learn_rate *dwih
 
 def show_norm_fig(peak_point_count):
     #采集的点数越多，就代表w的个数越多，所以，需要每个w的权值更小，避免进入梯度无法快速下载的区域
